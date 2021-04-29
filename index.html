@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/c/cf/Marvel_Games_logo.png" type="image/x-icon">
+    <title>Avengers memory</title>
+</head>
+<body onload="agregarInstrucciones()">
+
+    <header>
+        <div class="logo-header">
+            <a href="#"> <img class="logo-header--img" src="./assets/icon/Jqolgo.png" alt="Logo de Julio Quintero"> </a>
+        </div>
+        <ul class="header-portafolio-container">
+            <li><a href="https://juliocquintero.github.io/home/" target="_blank" class="enlace-portafolio" id="enlace-portafolio">Portafolio</a></li>
+        </ul>
+    </header>
+
+
+
+
+
+
+    <main>
+        <div class="game-tittle">
+            <h1 class="game-tittle--name"> MEMORY GAME </h1>
+            <p class="game-tittle--description" id="gameDescription"> Test your memory with this memory game. First select the difficulty level. The higher the number, the more cards are in the memo game. On the game board, there are always two identical images. Start the game by flipping a card. Then try to find another card that has the same image as the first. If you can't find a pair, the flipped cards will be flipped back with the face down. Try to remember these images as it becomes easier to find pairs the longer you play. When you find a pair they are removed from the board and when you find all the pairs in this memory, you have completed the level. </p>
+        </div>
+
+        <section class="game-instructions" id= "gameInstructions"> 
+
+        </section>
+
+        <section class="game-cards" id="game-cards">
+
+        </section>
+
+        <div class="game-button--container">
+            <button class="game-button" id="gamebutton" value="Iniciar Partida"> Iniciar Partida</button>
+        </div>
+
+        <p class="time-game" id="timeGame"></p>
+
+    </main>
+
+
+
+    <footer>
+        <div class="footer-left">
+            <h3>Realizado por Julio Quintero, 2021.</h3>
+        </div>
+
+        <div class="footer-right">
+            <a class="facebook" href="https://www.facebook.com/juliocquinterog/" target="blank" ></a>
+            <a class="instagram" href="https://www.instagram.com/julioquintero__/" target="blank"></a>
+            <a class="twitter" href="https://twitter.com/JulioQuintero_" target="blank"></a>
+            <a class="github" href="https://github.com/Juliocquintero" target="blank" id=""> </a>
+        </div>
+    </footer>
+
+    <script src="./src/index.js"> </script>
+
+</body>
+</html>

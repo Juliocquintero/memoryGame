@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root  {
+    --black: rgba(0, 0, 0, 1);
+    --Rich-Black: rgba(10, 17, 31, 1);
+    --oxford-blue: rgba(20, 33, 61, 1);
+    --coyote-brown: rgba(136, 98, 39, 1);
+    --orange-web: rgba(252, 163, 17, 1);
+    --Gold-crayola: rgba(241, 196, 123, 1);
+    --cultured: rgba(242, 242, 242, 1);
+    --platinum: rgba(229, 229, 229, 1);
+    --withe: rgba(255, 255, 255, 1);
+    --font-tittle: 'Press Start 2P', cursive;
+    --text: Arial, sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* ===========================================BODY============================================================================================= */
+
+body{
+    background-color: var(--oxford-blue);
+}
+/* ===========================================HEADER======================================================================= */
+header{
+    padding: 0px 10px;
+    width: 100%;
+    min-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    background-color: var(--Rich-Black)
+}
+
+.logo-header--img{
+    height:32px;
+    width: auto;
+    margin-left: 10px;
+}
+
+.header-portafolio-container{
+    list-style: none;
+    display: flex;
+    justify-self: right;
+}
+
+
+.enlace-portafolio{
+    color: var(--platinum);
+    text-align: center;
+    font-size: 2rem;
+    text-decoration: none;
+    text-align: right;
+}
+
+/* ===========================================MAIN========================================================================= */
+main{
+    width: 100%;
+    min-width: 320px;
+    background-color: var(--oxford-blue);
+    margin: 0;
+    margin-top: 3.4rem;
+    margin-bottom: 5.4rem;
+}
+/* =========================================== CONTENIDO ======================================================================= */
+
+.game-tittle--name{
+    color: var(--platinum);
+    text-align: center;
+    font-family: var(--font-tittle);
+}
+
+.game-tittle--description{
+    color: var(--platinum);
+    text-align: justify;
+    font-family: var(--text);
+    font-size: 1.2rem;
+    margin: 1.5rem 1rem;
+}
+
+.game-cards, .game-instructions{
+    min-width: 320px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 1.5rem;
+    margin-top: 5rem;
+}
+
+
+.card-img{
+    width: 4rem;
+    height: 6.5rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: .5s;
+}
+
+.game-button--container{
+    display: flex;
+    justify-content: center;
+}
+.game-button{
+    background-color: var(--orange-web);
+    height: 3rem;
+    width: 6rem;
+    color: var(--black);
+    margin: 2rem auto;
+    cursor: pointer;
+}
+
+.cartaAlReves{
+    width: 15rem;
+    height: 20rem;
+    border: none;
+    outline: none;
+}
+
+.baraja{
+    position: absolute;
+}
+
+.destapar{
+    background-image: url('https://cdn.solitar.io/artwork-v133/cardbacks1/back32.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(360deg);
+}
+
+.cartaEquivocada{
+    transform: rotate(-720deg);
+}
+
+.out{
+    display: none;
+}
+
+.time-game{
+    color: var(--platinum);
+    font-size: 2rem;
+    margin: 1rem;
+    text-align: center;
+    font-family: var(--text);
+}
+
+
+/* =========================================== FOOTER PLANTILLA ======================================================================= */
+
+footer{
+    width: 100%;
+    min-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--Rich-Black);
+}
+
+.footer-left{
+    min-width: 320px;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px 0;
+
+}
+
+.footer-left h3{
+    font-size: 1.5rem;
+    padding: 10px 0;
+    text-align: center;
+    color: var(--platinum);
+}
+
+.footer-right{
+    min-width: 320px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0;
+
+}
+
+.footer-right a{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    margin: 10px 20px;
+}
+
+.facebook{
+    background-image: url(../assets/icon/facebook.png);
+}
+
+.instagram{
+    background-image: url(../assets/icon/instagram.png);
+}
+
+.twitter{
+    background-image: url(../assets/icon/twitter.png);
+}
+
+.github{
+    background-image: url(../assets/icon/github.png);
+}
+
+/* =========================================================================== RESPONSIVE ===========================================================================  */
+/* ===========================================media 460px========================================================================= */
+@media screen and (min-width: 460px){
+
+    /* html {
+        font-size: 68%;
+    } */
+
+
+} /* Final  del media 460px*/
+
+/* ===========================================media 620px========================================================================= */
+@media screen and (min-width: 620px){
+
+    html {
+        font-size: 72%;
+    }
+
+
+} /* Final  del media 620px*/
+
+
+/* ===========================================media 800px========================================================================= */
+@media screen and (min-width: 1024px){
+
+    html {
+        font-size: 78%;
+    }
+
+    main{
+        margin-top: 2.4rem;
+        margin-bottom: 2.2rem;
+    }
+
+    .logo-header--img{
+        margin: 0 40px;
+    }
+
+    .enlace-portafolio{
+        margin-right: 50px;
+    }
+
+    .base {
+        height: 46rem;
+    }
+
+
+} /* Final  del media 1024px*/
+
