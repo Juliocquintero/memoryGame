@@ -1230,7 +1230,7 @@ function eliminarEventos(){
 function win () {
     console.log('ganaste')
     paso = 0
-    CartaADestapar.classList.remove('destapar')
+    CartaADestapar.classList.add('destapar')
     let idCarta1 = CartaADestapar.dataset.id
 
     let idCarta2 = Carta2ADestapar.dataset.id
