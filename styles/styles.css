@@ -93,6 +93,7 @@ main{
     grid-template-columns: repeat(5, auto);
     grid-gap: 1.5rem;
     margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 
@@ -112,10 +113,14 @@ main{
 .game-button{
     background-color: var(--orange-web);
     height: 3rem;
-    width: 6rem;
+    width: auto;
     color: var(--black);
     margin: 2rem auto;
     cursor: pointer;
+    font-family: var(--font-tittle);
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
 }
 
 .cartaAlReves{
@@ -241,8 +246,16 @@ footer{
 @media screen and (min-width: 1024px){
 
     html {
-        font-size: 78%;
+        font-size: 80%;
     }
+    .game-cards, .game-instructions{
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+    .game-button {
+        margin: 1rem auto;
+    }
+    
 
     main{
         margin-top: 2.4rem;
