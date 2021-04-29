@@ -1238,7 +1238,7 @@ function win () {
     cartaElegida = undefined
     carta2Elegida = undefined
     cartasDestapadas+=2
-    if (cartasDestapadas===2){
+    if (cartasDestapadas===20){
         swal('¡Ganaste!', 'Tiempo transcurrido: ' + time + ' minutos', 'success')
         stopTime()
         timeGame.classList.add('out')
