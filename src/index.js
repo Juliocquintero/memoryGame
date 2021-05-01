@@ -1095,6 +1095,9 @@ function agregarInstrucciones () {
     }
 }
 
+let pares
+let ip
+
 function agregarNuevosPersonajes () {
     gameCards.classList.add('out')
 
@@ -1102,16 +1105,19 @@ function agregarNuevosPersonajes () {
 
         while(numeros.length < 10){
             agregarNumerosAArray()
+            pares = numeros.concat(dobles)
+            const miArrayDesordenado = ar => ar.sort(() => Math.random()-0.5);
+            miArrayDesordenado(pares)
+            console.log(pares)
         }
-        dobles.sort()
-        const pares = numeros.concat(dobles)
-
-        id = pares[i]
+        
+        ip = pares[i]
+        
         gameCards.innerHTML +=  `
-        <img src='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png' alt="Carta de ${personajes[id].name}" data-id="${personajes[id].id}" class="card-img" id="card${i+1}">
+        <img src='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png' alt="Carta de ${personajes[ip].name}" data-id="${personajes[ip].id}" class="card-img" id="card${i+1}">
         `
     }
-
+console.log(pares)
 }
 agregarNuevosPersonajes()
 
