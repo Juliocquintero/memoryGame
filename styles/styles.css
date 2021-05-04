@@ -138,11 +138,8 @@ main{
 }
 
 .destapar{
-    background-image: url('https://cdn.solitar.io/artwork-v133/cardbacks1/back32.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     transform: rotate(360deg);
+    user-select: none;
 }
 
 .cartaEquivocada{

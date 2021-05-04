@@ -1104,7 +1104,7 @@ const agregarNuevosPersonajes = () =>{
         }
         let ip = pares[i]
         gameCards.innerHTML +=  `
-        <img src='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png' alt="Carta de ${personajes[ip].name}" data-id="${personajes[ip].id}" class="card-img" id="card${i+1}">
+        <img src='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png' alt="Carta de ${personajes[ip].name}" onclick="elegirCartas(card${[i+1]})" data-id="${personajes[ip].id}" class="card-img" id="card${i+1}">
         `
     }
 }
@@ -1153,80 +1153,19 @@ const iniciarPartida = () =>{
     gameDescription.classList.add('out')
 }
 
-const card1 = document.getElementById('card1')
-const card2 = document.getElementById('card2')
-const card3 = document.getElementById('card3')
-const card4 = document.getElementById('card4')
-const card5 = document.getElementById('card5')
-const card6 = document.getElementById('card6')
-const card7 = document.getElementById('card7')
-const card8 = document.getElementById('card8')
-const card9 = document.getElementById('card9')
-const card10 = document.getElementById('card10')
-const card11 = document.getElementById('card11')
-const card12 = document.getElementById('card12')
-const card13 = document.getElementById('card13')
-const card14 = document.getElementById('card14')
-const card15 = document.getElementById('card15')
-const card16 = document.getElementById('card16')
-const card17 = document.getElementById('card17')
-const card18 = document.getElementById('card18')
-const card19 = document.getElementById('card19')
-const card20 = document.getElementById('card20')
-
-const agregarEventos=() =>{
-    card1.addEventListener('click', function(){elegirCartas(card1)})
-    card2.addEventListener('click', function(){elegirCartas(card2)})
-    card3.addEventListener('click', function(){elegirCartas(card3)})
-    card4.addEventListener('click', function(){elegirCartas(card4)})
-    card5.addEventListener('click', function(){elegirCartas(card5)})
-    card6.addEventListener('click', function(){elegirCartas(card6)})
-    card7.addEventListener('click', function(){elegirCartas(card7)})
-    card8.addEventListener('click', function(){elegirCartas(card8)})
-    card9.addEventListener('click', function(){elegirCartas(card9)})
-    card10.addEventListener('click', function(){elegirCartas(card10)})
-    card11.addEventListener('click', function(){elegirCartas(card11)})
-    card12.addEventListener('click', function(){elegirCartas(card12)})
-    card13.addEventListener('click', function(){elegirCartas(card13)})
-    card14.addEventListener('click', function(){elegirCartas(card14)})
-    card15.addEventListener('click', function(){elegirCartas(card15)})
-    card16.addEventListener('click', function(){elegirCartas(card16)})
-    card17.addEventListener('click', function(){elegirCartas(card17)})
-    card18.addEventListener('click', function(){elegirCartas(card18)})
-    card19.addEventListener('click', function(){elegirCartas(card19)})
-    card20.addEventListener('click', function(){elegirCartas(card20)})
-}
-agregarEventos()
-
-const eliminarEventos = () =>{
-    card1.removeEventListener('click', function(){elegirCartas(card1)})
-    card2.removeEventListener('click', function(){elegirCartas(card2)})
-    card3.removeEventListener('click', function(){elegirCartas(card3)})
-    card4.removeEventListener('click', function(){elegirCartas(card4)})
-    card5.removeEventListener('click', function(){elegirCartas(card5)})
-    card6.removeEventListener('click', function(){elegirCartas(card6)})
-    card7.removeEventListener('click', function(){elegirCartas(card7)})
-    card8.removeEventListener('click', function(){elegirCartas(card8)})
-    card9.removeEventListener('click', function(){elegirCartas(card9)})
-    card10.removeEventListener('click', function(){elegirCartas(card10)})
-    card11.removeEventListener('click', function(){elegirCartas(card11)})
-    card12.removeEventListener('click', function(){elegirCartas(card12)})
-    card13.removeEventListener('click', function(){elegirCartas(card13)})
-    card14.removeEventListener('click', function(){elegirCartas(card14)})
-    card15.removeEventListener('click', function(){elegirCartas(card15)})
-    card16.removeEventListener('click', function(){elegirCartas(card16)})
-    card17.removeEventListener('click', function(){elegirCartas(card17)})
-    card18.removeEventListener('click', function(){elegirCartas(card18)})
-    card19.removeEventListener('click', function(){elegirCartas(card19)})
-    card20.removeEventListener('click', function(){elegirCartas(card20)})
-}
 const win = () =>{
     paso = 0
     CartaADestapar.classList.add('destapar')
     let idCarta1 = CartaADestapar.dataset.id
+    console.log(CartaADestapar)
+    console.log(Carta2ADestapar)
+    CartaADestapar.onclick= ''
+    Carta2ADestapar.onclick= ''
 
     let idCarta2 = Carta2ADestapar.dataset.id
-    Carta2ADestapar.classList.remove('destapar')
+    Carta2ADestapar.classList.add('destapar')
+
+    Carta2ADestapar.disabled = true
     cartaElegida = undefined
     carta2Elegida = undefined
     cartasDestapadas+=2
@@ -1270,7 +1209,9 @@ const elegirCartas = card =>{
         card.src = `${personajes[carta2Elegida].image}`
         if (paso===2){
             if(CartaADestapar.id === Carta2ADestapar.id){
-                lose()
+                if(!CartaADestapar.classList.contains('destapar')){
+                    lose()
+                }
             } else {
                 if(cartaElegida === carta2Elegida){
                     win()
@@ -1288,10 +1229,14 @@ const elegirCartas = card =>{
         card.src = `${personajes[cartaElegida].image}`
         if (paso===2){
             if(CartaADestapar.id === Carta2ADestapar.id){
-                lose()
+                if(!CartaADestapar.classList.contains('destapar') && !Carta2ADestapar.classList.contains('destapar')){
+                    lose()
+                }
             } else {
                 if(cartaElegida === carta2Elegida){
-                    win()
+                    if(!CartaADestapar.classList.contains('destapar') && !Carta2ADestapar.classList.contains('destapar')){
+                        win()
+                    }
                 } else {
                     lose()
                 }
