@@ -25,25 +25,24 @@
 
 
 
-
-
-
     <main>
         <div class="game-tittle">
             <h1 class="game-tittle--name"> MEMORY GAME </h1>
             <p class="game-tittle--description" id="gameDescription"> Test your memory with this memory game. First select the difficulty level. The higher the number, the more cards are in the memo game. On the game board, there are always two identical images. Start the game by flipping a card. Then try to find another card that has the same image as the first. If you can't find a pair, the flipped cards will be flipped back with the face down. Try to remember these images as it becomes easier to find pairs the longer you play. When you find a pair they are removed from the board and when you find all the pairs in this memory, you have completed the level. </p>
         </div>
 
-        <section class="game-instructions" id= "gameInstructions"> 
+        <section class="game-instructions" id= "gameInstructions">
 
         </section>
 
-        <section class="game-cards" id="game-cards">
-
+        <section class="game-cards out" id="game-cards">
         </section>
 
         <div class="game-button--container">
-            <button class="game-button" id="gamebutton" value="Iniciar Partida"> Iniciar Partida</button>
+            <button class="game-button" id="gamebutton" value="Iniciar Partida" onclick="iniciarPartida()"> Iniciar Partida</button>
+            <!-- <button class="game-button out" id="reiniciarbutton" value="Reiniciar Partida" type="reset"> Reiniciar Partida</button> -->
+            <a href="" class="game-button" id="reiniciar"> Reiniciar Partida</a>
+            <button class="game-button out" id="reiniciarbutton" value="Reiniciar Partida" type="reset"> Reiniciar Partida</button>
         </div>
 
         <p class="time-game" id="timeGame"></p>

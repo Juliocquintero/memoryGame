@@ -1,36 +1,6 @@
-//Div contenedores
-const gameCards = document.getElementById('game-cards')
-const gameInstructions = document.getElementById('gameInstructions')
-const gameDescription = document.getElementById('gameDescription')
-//Botones
-const gamebutton = document.getElementById('gamebutton')
-const reiniciarbutton = document.getElementById('reiniciarbutton')
-
-// Info Reloj:
-const timeGame = document.getElementById('timeGame')
-let minutes = '00'
-let seconds = '00'
-let time
-let status = true
-
-
-// Iniciadores
-let paso = 0
-let cartaElegida = undefined
-let carta2Elegida = undefined
-let CartaADestapar = undefined
-let Carta2ADestapar = undefined
-let cartasDestapadas = 0
-
-//Arrays
-let dobles = []
-let numeros = []
-let pares
-
-//Objeto con info de los personajes
 const personajes = [
     {//IronMan[0]
-        "id": 0,
+        "id": "0",
         "name": "Iron Man",
         "powerstats": {
             "intelligence": "100",
@@ -82,7 +52,7 @@ const personajes = [
     },
     //Capitan America[1]
     {
-        "id": 1,
+        "id": "1",
         "name": "Captain America",
         "powerstats": {
             "intelligence": "69",
@@ -131,7 +101,7 @@ const personajes = [
     },
     //2
     {
-        "id": 2,
+        "id": "2",
         "name": "Ant-Man",
         "powerstats": {
             "intelligence": "100",
@@ -180,7 +150,7 @@ const personajes = [
     },
     //3
     {
-        "id": 3,
+        "id": "3",
         "name": "Black Panther",
         "powerstats": {
             "intelligence": "88",
@@ -234,7 +204,7 @@ const personajes = [
     },
     //4
     {
-        "id": 4,
+        "id": "4",
         "name": "Black Widow",
         "powerstats": {
             "intelligence": "75",
@@ -291,7 +261,7 @@ const personajes = [
     },
     //5
     {
-        "id": 5,
+        "id": "5",
         "name": "Falcon",
         "powerstats": {
             "intelligence": "38",
@@ -343,7 +313,7 @@ const personajes = [
     },
     //6
     {
-    "id": 6,
+    "id": "6",
     "name": "Gamora",
     "powerstats": {
         "intelligence": "75",
@@ -392,7 +362,7 @@ const personajes = [
     },
     //7
     {
-        "id": 7,
+        "id": "7",
         "name": "Hawkeye",
         "powerstats": {
             "intelligence": "56",
@@ -444,7 +414,7 @@ const personajes = [
     },
     //8
     {
-        "id": 8,
+        "id": "8",
         "name": "Hulk",
         "powerstats": {
             "intelligence": "88",
@@ -498,7 +468,7 @@ const personajes = [
     },
     //9
     {
-        "id": 9,
+        "id": "9",
         "name": "Loki",
         "powerstats": {
             "intelligence": "88",
@@ -553,7 +523,7 @@ const personajes = [
     },
     //10
     {
-        "id": 10,
+        "id": "10",
         "name": "Rocket Raccoon",
         "powerstats": {
             "intelligence": "50",
@@ -602,7 +572,7 @@ const personajes = [
     },
     //11
     {
-        "id": 11,
+        "id": "11",
         "name": "Scarlet Witch",
         "powerstats": {
             "intelligence": "100",
@@ -653,7 +623,7 @@ const personajes = [
     },
     //12
     {
-        "id": 12,
+        "id": "12",
         "name": "Winter Soldier",
         "powerstats": {
             "intelligence": "56",
@@ -701,7 +671,7 @@ const personajes = [
     },
     //13
     {
-        "id": 13,
+        "id": "13",
         "name": "Spider-Man",
         "powerstats": {
             "intelligence": "90",
@@ -762,7 +732,7 @@ const personajes = [
     },
     //14
     {
-        "id": 14,
+        "id": "14",
         "name": "Star-Lord",
         "powerstats": {
             "intelligence": "69",
@@ -809,7 +779,7 @@ const personajes = [
     },
     //15
     {
-        "id": 15,
+        "id": "15",
         "name": "Thor",
         "powerstats": {
             "intelligence": "69",
@@ -860,7 +830,7 @@ const personajes = [
     //16
 
     {
-        "id": 16,
+        "id": "16",
         "name": "Vision",
         "powerstats": {
             "intelligence": "100",
@@ -908,7 +878,7 @@ const personajes = [
     },
     //17
     {
-        "id": 17,
+        "id": "17",
         "name": "Captain Marvel",
         "powerstats": {
             "intelligence": "84",
@@ -960,7 +930,7 @@ const personajes = [
 
     //18
     {
-        "id": 18,
+        "id": "18",
         "name": "Doctor Strange",
         "powerstats": {
             "intelligence": "100",
@@ -1012,7 +982,7 @@ const personajes = [
 
     //19 ULTIMO - 20 Length
     {
-        "id": 19,
+        "id": "19",
         "name": "Groot",
         "powerstats": {
             "intelligence": "75",
@@ -1064,307 +1034,5 @@ const personajes = [
 
 ]
 
-const numeroDeCartas = personajes.length
-const niveles = numeroDeCartas
 
-
-const numeroRandom = () => {
-    const numero = Math.floor(Math.random() * (niveles - 1)) + 1
-    return numero
-}
-
-let id = numeroRandom()
-
-const agregarNumerosAArray = ()=>{
-    id = numeroRandom()
-    if(!numeros.includes(id)){
-        numeros.push(id)
-    }
-
-    if(!dobles.includes(id)){
-        dobles.push(id)
-    }
-}
-
-
-const agregarInstrucciones = () =>{
-    for (let i= 0; i < 20 ; i++){
-        gameInstructions.innerHTML +=  `
-            <img src='${personajes[i].image}' alt="Carta de ${personajes[i].name}" class="card-img" id="cardDefault${i+1}">
-            `
-    }
-}
-
-const agregarNuevosPersonajes = () =>{
-    for (let i= 0; i < 20 ; i++){
-        while(numeros.length < 10){
-            agregarNumerosAArray()
-            pares = numeros.concat(dobles)
-            pares.sort(() => Math.random()-0.5);
-        }
-        let ip = pares[i]
-        gameCards.innerHTML +=  `
-        <img src='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png' alt="Carta de ${personajes[ip].name}" data-id="${personajes[ip].id}" class="card-img" id="card${i+1}">
-        `
-    }
-}
-agregarNuevosPersonajes()
-
-const playTime = () =>{
-    const subirSegundos = ()=>{
-        seconds++
-        if (seconds<10){
-            seconds = '0' + seconds
-        }
-        timeGame.textContent = minutes + ':' + seconds
-        time = minutes + ':' + seconds
-    }
-
-    if(status===true){
-        setInterval(subirSegundos, 1000)
-    }
-
-    const subirMinutos = ()=>{
-        minutes++
-        if (minutes<10){
-            minutes = '0' + minutes
-        }
-        seconds = 0
-        timeGame.textContent = minutes + ':' + seconds
-        time = minutes + ':' + seconds
-    }
-
-    if (status === true){
-        setInterval(subirMinutos, 60000)
-    }
-}
-
-
-const stopTime =() =>{
-    timeGame.textContent = time
-    status = false
-}
-
-const iniciarPartida = () =>{
-    playTime()
-    gameInstructions.classList.add('out')
-    gameCards.classList.remove('out')
-    gamebutton.classList.add('out')
-    gameDescription.classList.add('out')
-}
-
-const card1 = document.getElementById('card1')
-const card2 = document.getElementById('card2')
-const card3 = document.getElementById('card3')
-const card4 = document.getElementById('card4')
-const card5 = document.getElementById('card5')
-const card6 = document.getElementById('card6')
-const card7 = document.getElementById('card7')
-const card8 = document.getElementById('card8')
-const card9 = document.getElementById('card9')
-const card10 = document.getElementById('card10')
-const card11 = document.getElementById('card11')
-const card12 = document.getElementById('card12')
-const card13 = document.getElementById('card13')
-const card14 = document.getElementById('card14')
-const card15 = document.getElementById('card15')
-const card16 = document.getElementById('card16')
-const card17 = document.getElementById('card17')
-const card18 = document.getElementById('card18')
-const card19 = document.getElementById('card19')
-const card20 = document.getElementById('card20')
-
-const agregarEventos=() =>{
-    card1.addEventListener('click', function(){elegirCartas(card1)})
-    card2.addEventListener('click', function(){elegirCartas(card2)})
-    card3.addEventListener('click', function(){elegirCartas(card3)})
-    card4.addEventListener('click', function(){elegirCartas(card4)})
-    card5.addEventListener('click', function(){elegirCartas(card5)})
-    card6.addEventListener('click', function(){elegirCartas(card6)})
-    card7.addEventListener('click', function(){elegirCartas(card7)})
-    card8.addEventListener('click', function(){elegirCartas(card8)})
-    card9.addEventListener('click', function(){elegirCartas(card9)})
-    card10.addEventListener('click', function(){elegirCartas(card10)})
-    card11.addEventListener('click', function(){elegirCartas(card11)})
-    card12.addEventListener('click', function(){elegirCartas(card12)})
-    card13.addEventListener('click', function(){elegirCartas(card13)})
-    card14.addEventListener('click', function(){elegirCartas(card14)})
-    card15.addEventListener('click', function(){elegirCartas(card15)})
-    card16.addEventListener('click', function(){elegirCartas(card16)})
-    card17.addEventListener('click', function(){elegirCartas(card17)})
-    card18.addEventListener('click', function(){elegirCartas(card18)})
-    card19.addEventListener('click', function(){elegirCartas(card19)})
-    card20.addEventListener('click', function(){elegirCartas(card20)})
-}
-agregarEventos()
-
-const eliminarEventos = () =>{
-    card1.removeEventListener('click', function(){elegirCartas(card1)})
-    card2.removeEventListener('click', function(){elegirCartas(card2)})
-    card3.removeEventListener('click', function(){elegirCartas(card3)})
-    card4.removeEventListener('click', function(){elegirCartas(card4)})
-    card5.removeEventListener('click', function(){elegirCartas(card5)})
-    card6.removeEventListener('click', function(){elegirCartas(card6)})
-    card7.removeEventListener('click', function(){elegirCartas(card7)})
-    card8.removeEventListener('click', function(){elegirCartas(card8)})
-    card9.removeEventListener('click', function(){elegirCartas(card9)})
-    card10.removeEventListener('click', function(){elegirCartas(card10)})
-    card11.removeEventListener('click', function(){elegirCartas(card11)})
-    card12.removeEventListener('click', function(){elegirCartas(card12)})
-    card13.removeEventListener('click', function(){elegirCartas(card13)})
-    card14.removeEventListener('click', function(){elegirCartas(card14)})
-    card15.removeEventListener('click', function(){elegirCartas(card15)})
-    card16.removeEventListener('click', function(){elegirCartas(card16)})
-    card17.removeEventListener('click', function(){elegirCartas(card17)})
-    card18.removeEventListener('click', function(){elegirCartas(card18)})
-    card19.removeEventListener('click', function(){elegirCartas(card19)})
-    card20.removeEventListener('click', function(){elegirCartas(card20)})
-}
-const win = () =>{
-    paso = 0
-    CartaADestapar.classList.add('destapar')
-    let idCarta1 = CartaADestapar.dataset.id
-
-    let idCarta2 = Carta2ADestapar.dataset.id
-    Carta2ADestapar.classList.remove('destapar')
-    cartaElegida = undefined
-    carta2Elegida = undefined
-    cartasDestapadas+=2
-    if (cartasDestapadas===20){
-        swal('¡Ganaste!', 'Tiempo transcurrido: ' + time + ' minutos', 'success')
-        stopTime()
-        timeGame.classList.add('out')
-        reiniciarbutton.classList.remove('out')
-    }
-}
-
-const taparCarta = () =>{
-   CartaADestapar.src ='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png'
-   Carta2ADestapar.src ='https://i.pinimg.com/originals/cf/af/df/cfafdfc5ca3e84c4afe2829b7ec3ce61.png'
-}
-
-const agregarClases = () =>{
-    CartaADestapar.classList.add('cartaEquivocada')
-    Carta2ADestapar.classList.add('cartaEquivocada')
-}
-const removerClases = ()=>{
-    CartaADestapar.classList.remove('cartaEquivocada')
-    Carta2ADestapar.classList.remove('cartaEquivocada')
-}
-
-const lose = () =>{
-    agregarClases()
-    setTimeout(removerClases, 100)
-    setTimeout(taparCarta, 600)
-    cartaElegida = undefined
-    carta2Elegida = undefined
-    paso = 0
-}
-
-
-const elegirCartas = card =>{
-    if(cartaElegida !== undefined){
-        carta2Elegida = Number(card.dataset.id)
-        Carta2ADestapar = card
-        paso++
-        card.src = `${personajes[carta2Elegida].image}`
-        if (paso===2){
-            if(CartaADestapar.id === Carta2ADestapar.id){
-                lose()
-            } else {
-                if(cartaElegida === carta2Elegida){
-                    win()
-                } else {
-                    lose()
-                }
-            }
-        }
-
-    } else {
-        let destaparCarta = card.image
-        cartaElegida = Number(card.dataset.id)
-        CartaADestapar= card
-        paso++
-        card.src = `${personajes[cartaElegida].image}`
-        if (paso===2){
-            if(CartaADestapar.id === Carta2ADestapar.id){
-                lose()
-            } else {
-                if(cartaElegida === carta2Elegida){
-                    win()
-                } else {
-                    lose()
-                }
-            }
-        }
-    }
-
-}
-
-const reiniciarJuego = () =>{
-    minutes = '00'
-    seconds = '00'
-    time = ''
-    status = true
-    paso = 0
-    cartaElegida = undefined
-    carta2Elegida = undefined
-    CartaADestapar = undefined
-    Carta2ADestapar = undefined
-
-    cartasDestapadas = 0
-    gameCards.innerHTML=''
-    id = numeroRandom()
-    numero = []
-    dobles = []
-    pares = 
-    agregarNuevosPersonajes()
-    const card1 = document.getElementById('card1')
-    const card2 = document.getElementById('card2')
-    const card3 = document.getElementById('card3')
-    const card4 = document.getElementById('card4')
-    const card5 = document.getElementById('card5')
-    const card6 = document.getElementById('card6')
-    const card7 = document.getElementById('card7')
-    const card8 = document.getElementById('card8')
-    const card9 = document.getElementById('card9')
-    const card10 = document.getElementById('card10')
-    const card11 = document.getElementById('card11')
-    const card12 = document.getElementById('card12')
-    const card13 = document.getElementById('card13')
-    const card14 = document.getElementById('card14')
-    const card15 = document.getElementById('card15')
-    const card16 = document.getElementById('card16')
-    const card17 = document.getElementById('card17')
-    const card18 = document.getElementById('card18')
-    const card19 = document.getElementById('card19')
-    const card20 = document.getElementById('card20')
-    card1.addEventListener('click', function(){elegirCartas(card1)})
-    card2.addEventListener('click', function(){elegirCartas(card2)})
-    card3.addEventListener('click', function(){elegirCartas(card3)})
-    card4.addEventListener('click', function(){elegirCartas(card4)})
-    card5.addEventListener('click', function(){elegirCartas(card5)})
-    card6.addEventListener('click', function(){elegirCartas(card6)})
-    card7.addEventListener('click', function(){elegirCartas(card7)})
-    card8.addEventListener('click', function(){elegirCartas(card8)})
-    card9.addEventListener('click', function(){elegirCartas(card9)})
-    card10.addEventListener('click', function(){elegirCartas(card10)})
-    card11.addEventListener('click', function(){elegirCartas(card11)})
-    card12.addEventListener('click', function(){elegirCartas(card12)})
-    card13.addEventListener('click', function(){elegirCartas(card13)})
-    card14.addEventListener('click', function(){elegirCartas(card14)})
-    card15.addEventListener('click', function(){elegirCartas(card15)})
-    card16.addEventListener('click', function(){elegirCartas(card16)})
-    card17.addEventListener('click', function(){elegirCartas(card17)})
-    card18.addEventListener('click', function(){elegirCartas(card18)})
-    card19.addEventListener('click', function(){elegirCartas(card19)})
-    card20.addEventListener('click', function(){elegirCartas(card20)})
-
-}
-
-reiniciarbutton.addEventListener('click', reiniciarJuego)
-
-
-
-
-
+export {personajes}

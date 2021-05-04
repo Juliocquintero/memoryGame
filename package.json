@@ -1,0 +1,20 @@
+{
+  "name": "Memory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "personajes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juliocquintero/memoryGame.git"
+  },
+  "keywords": [],
+  "author": "Julio Quintero <juliocquinterog17@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Juliocquintero/memoryGame/issues"
+  },
+  "homepage": "https://github.com/Juliocquintero/memoryGame#readme"
+}
