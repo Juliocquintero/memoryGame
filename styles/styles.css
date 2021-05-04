@@ -121,6 +121,9 @@ main{
     font-size: 1rem;
     border-radius: 5px;
     outline: none;
+    text-decoration: none;
+    line-height: 3rem;
+    padding: 0 10px;
 }
 
 .cartaAlReves{
